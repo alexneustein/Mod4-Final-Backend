@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :set_player, only: [:show, :update, :destroy]
+  # before_action :set_player, only: [:show, :create, :update, :destroy]
 
   # GET /players
   def index
@@ -15,8 +15,9 @@ class PlayersController < ApplicationController
 
   # POST /players
   def create
-    @player = Player.new(player_params)
 
+    @player = Player.new(player_params)
+    # byebug
     if @player.save
       render json: @player, status: :created, location: @player
     else
