@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :game_prompts
   resources :prompts
   resources :topics
   resources :player_games
