@@ -22,6 +22,9 @@ gem 'mini_magick', '~> 4.8'
 # Serializer to Help API
 gem 'active_model_serializers'
 
+#ActionCable
+# gem 'ActionCable'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

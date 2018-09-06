@@ -1,5 +1,5 @@
 class PlayerGamesController < ApplicationController
-  before_action :set_player_game, only: [:show, :update, :destroy]
+  # before_action :set_player_game, only: [:show, :update, :destroy]
 
   # GET /player_games
   def index
