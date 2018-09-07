@@ -2,6 +2,7 @@ class BroadcastChatJob < ApplicationJob
   queue_as :default
 
   def perform(data)
-    ActionCable.server.broadcast('chat_channel', content: data)
+    comment = data
+    ActionCable.server.broadcast('chat_channel', comment: comment)
   end
 end

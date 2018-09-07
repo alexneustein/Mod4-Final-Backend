@@ -1,3 +1,3 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :id, :players, :topic, :prompts
+  attributes :id, :players, :prompts, :winner_id, :topic
 end

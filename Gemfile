@@ -25,6 +25,8 @@ gem 'active_model_serializers'
 #ActionCable
 # gem 'ActionCable'
 
+gem 'faker'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

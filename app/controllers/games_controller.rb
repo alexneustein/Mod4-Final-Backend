@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  # before_action :set_game, only: [:show, :update, :destroy]
+  # before_action :set_game
 
   # GET /games
   def index
@@ -10,15 +10,23 @@ class GamesController < ApplicationController
 
   # GET /games/1
   def show
+    @game = Game.find(params[:id])
     render json: @game
   end
 
   # POST /games
   def create
-    @game = Game.new(game_params)
+    @game = Game.new
+    @game.topic_id = Topic.all.sample.id
 
     if @game.save
+        @topic = Topic.find(@game.topic_id)
+        @possible_prompts = @topic.prompts
+        5.times do
+          GamePrompt.create(game_id: @game.id, prompt_id: @possible_prompts.sample.id)
+        end
       render json: @game, status: :created, location: @game
+
     else
       render json: @game.errors, status: :unprocessable_entity
     end
@@ -44,8 +52,8 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
-    def game_params
-      params.require(:game).permit(:winner_id, :topic_id)
-    end
+    # def game_params
+    #   params.require(:game)
+    # end
+
 end

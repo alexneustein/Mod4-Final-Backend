@@ -11,9 +11,9 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def onChat(data)
-    @message = {body: data}
-    ChatChannel.broadcast_to 'chat_channel', message: @message
-    # ActionCable.srever.broadcast('chat_channel', history: @message)
+    @message = data
+    # ChatChannel.broadcast_to 'chat_channel', message: @message
+    ActionCable.server.broadcast('chat_channel', message: @message)
   end
 
 end
