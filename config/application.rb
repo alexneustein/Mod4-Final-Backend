@@ -14,6 +14,7 @@ require "action_cable/engine"
 require "rails/test_unit/railtie"
 require 'json'
 require 'faker'
+require 'bcrypt'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

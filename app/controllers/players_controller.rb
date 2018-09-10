@@ -18,7 +18,7 @@ class PlayersController < ApplicationController
 
     @player = Player.find_or_create_by(player_params)
     # byebug
-    if @player.save
+    if @player.valid?
       render json: @player, status: :created, location: @player
     else
       render json: @player.errors, status: :unprocessable_entity

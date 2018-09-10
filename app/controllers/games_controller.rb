@@ -34,6 +34,7 @@ class GamesController < ApplicationController
 
   # PATCH/PUT /games/1
   def update
+    @game = Game.find(params[:id])
     if @game.update(game_params)
       render json: @game
     else
@@ -52,8 +53,8 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
     end
 
-    # def game_params
-    #   params.require(:game)
-    # end
+    def game_params
+      params.require(:game).permit(:id, :winner_id)
+    end
 
 end
