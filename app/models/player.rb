@@ -12,5 +12,8 @@ has_many :topics, through: :prompts
 # validates :username, length: {in: 6..15}
 # validates :username, uniqueness: {case_sensitive: false}
 
+def format
+  {username: self.username, id: self.id}
+end
 
 end

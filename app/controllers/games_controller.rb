@@ -25,6 +25,7 @@ class GamesController < ApplicationController
         5.times do
           GamePrompt.create(game_id: @game.id, prompt_id: @possible_prompts.sample.id)
         end
+        
       render json: @game, status: :created, location: @game
 
     else
