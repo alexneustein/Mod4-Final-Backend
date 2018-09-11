@@ -2,12 +2,12 @@ class ScoreChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     stream_from 'score_channel'
-    ConnectedList.add(game_id)
+    # ConnectedList.add(game_id)
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-    ConnectedList.remove(game_id)
+    # ConnectedList.remove(game_id)
   end
 
   def onGameChange(data)

@@ -8,6 +8,7 @@ class DrawCoordsChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def send_coords
+  def send_coords(data)
+    ActionCable.server.broadcast('draw_coords_channel', data: data)
   end
 end
