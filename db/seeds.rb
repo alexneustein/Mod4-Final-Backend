@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+Topic.create(name: 'FamilyGuy', description: Faker::FamilyGuy.quote)
+Topic.create(name: 'Hobbit', description: Faker::Hobbit.quote)
+Topic.create(name: 'HowIMetYourMother', description: Faker::HowIMetYourMother.quote)
+Topic.create(name: 'StarWars', description: Faker::StarWars.quote)
+Topic.create(name: 'GameOfThrones', description: Faker::GameOfThrones.quote)
+
 10.times do
   Prompt.create(name: Faker::FamilyGuy.unique.character, topic_id: 1)
 end
