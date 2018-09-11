@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
   # before_action :set_player, only: [:show, :create, :update, :destroy]
+  # skip_before_action :authorized, only: [:create]
 
   # GET /players
   def index
@@ -16,7 +17,7 @@ class PlayersController < ApplicationController
   # POST /players
   def create
 
-    @player = Player.find_or_create_by(player_params)
+    @player = Player.create(player_params)
     # byebug
     if @player.valid?
       render json: @player, status: :created, location: @player
@@ -47,6 +48,6 @@ class PlayersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def player_params
-      params.require(:player).permit(:username, :password_digest)
+      params.require(:player).permit(:username, :password)
     end
 end

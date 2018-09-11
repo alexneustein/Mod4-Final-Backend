@@ -6,11 +6,11 @@ has_many :game_prompts, through: :games
 has_many :prompts, through: :game_prompts
 has_many :topics, through: :prompts
 
-# has_secure_password
-#
-# validates :username, presence: true
-# validates :username, length: {in: 6..15}
-# validates :username, uniqueness: {case_sensitive: false}
+has_secure_password
+
+validates :username, presence: true
+validates :username, length: {in: 6..15}
+validates :username, uniqueness: {case_sensitive: false}
 
 def format
   {username: self.username, id: self.id}
