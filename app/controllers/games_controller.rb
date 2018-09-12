@@ -16,16 +16,16 @@ class GamesController < ApplicationController
 
   # POST /games
   def create
-    @game = Game.new
-    @game.topic_id = Topic.all.sample.id
-
+    @game = Game.new(topic_id: game_params['topic_id'])
+    # byebug
     if @game.save
         @topic = Topic.find(@game.topic_id)
         @possible_prompts = @topic.prompts
-        5.times do
-          GamePrompt.create(game_id: @game.id, prompt_id: @possible_prompts.sample.id)
+
+        10.times do
+          makePrompt(@possible_prompts)
         end
-        
+
       render json: @game, status: :created, location: @game
 
     else
@@ -54,8 +54,12 @@ class GamesController < ApplicationController
       @game = Game.find(params[:id])
     end
 
+    def makePrompt(possibilities)
+      newprompt = GamePrompt.create(game_id: @game.id, prompt_id: possibilities.sample.id)
+    end
+
     def game_params
-      params.require(:game).permit(:id, :winner_id)
+      params.require(:game).permit(:id, :winner_id, :topic_id)
     end
 
 end
