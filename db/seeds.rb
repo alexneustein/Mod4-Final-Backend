@@ -13,7 +13,7 @@ Topic.create(name: 'Tolkein', description: 'From Middle Earth and the tale of th
 Topic.create(name: 'StarWars', description: 'How well do YOU know the galaxy far far away....')
 Topic.create(name: 'Music', description: "Jamin' with the greats")
 
-30.times do
+25.times do
   randnum = Random.new.rand(1...3)
   if randnum == 1
     Prompt.create(name: Faker::Ancient.unique.god, topic_id: 1)
@@ -30,7 +30,7 @@ end
   Prompt.create(name: Faker::Pokemon.name, topic_id: 2)
 end
 
-50.times do
+25.times do
   randnum = Random.new.rand(1...2)
   if randnum == 1
     Prompt.create(name: Faker::LordOfTheRings.unique.character, topic_id: 3)
@@ -43,7 +43,7 @@ end
   end
 end
 
-50.times do
+25.times do
   randnum = Random.new.rand(1...2)
 if randnum == 1
   Prompt.create(name: Faker::StarWars.unique.character, topic_id: 4)
